@@ -8,12 +8,12 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
-from users.serializers import RecipeMinifiedSerializer
 from recipes.filters import IngredientFilter, RecipeFilter
 from recipes.models import (Favorite, Ingredient, IngredientRecipe, Recipe,
                             ShoppingCart, Tag)
 from recipes.serializers import (IngredientSerializer, RecipeSerializer,
                                  TagSerializer)
+from users.serializers import RecipeMinifiedSerializer
 
 
 def delete_method_for_obj(model, user, pk):
