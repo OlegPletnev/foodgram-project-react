@@ -3,7 +3,6 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.fields import ReadOnlyField, SerializerMethodField
 from rest_framework.serializers import ModelSerializer
 from rest_framework.validators import UniqueTogetherValidator
-
 from users.serializers import CustomUserSerializer
 
 from .models import Ingredient, IngredientRecipe, Recipe, Tag

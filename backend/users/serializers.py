@@ -1,9 +1,8 @@
 from djoser.serializers import UserCreateSerializer, UserSerializer
 from drf_extra_fields.fields import Base64ImageField
+from recipes.models import Recipe
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
-
-from recipes.models import Recipe
 
 # from recipes.serializers import RecipeMinifiedSerializer
 from .models import Subscribe, User
