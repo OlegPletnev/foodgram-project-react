@@ -1,4 +1,4 @@
-from django_filters.rest_framework import FilterSet, CharFilter, filters
+from django_filters.rest_framework import CharFilter, FilterSet, filters
 
 from recipes.models import Ingredient, Recipe
 from users.models import User

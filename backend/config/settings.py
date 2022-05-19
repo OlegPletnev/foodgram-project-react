@@ -81,7 +81,7 @@ else:
             'USER': os.getenv('POSTGRES_USER', default='postgres'),
             'PASSWORD': os.getenv('POSTGRES_PASSWORD', default='123'),
             'HOST': os.getenv('DB_HOST', default='db'),
-            'PORT': os.getenv('DB_PORT', default='5433'),
+            'PORT': os.getenv('DB_PORT', default='5432'),
         }
     }
 

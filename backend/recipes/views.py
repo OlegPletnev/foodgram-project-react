@@ -6,14 +6,14 @@ from rest_framework.decorators import action
 from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.viewsets import ReadOnlyModelViewSet, ModelViewSet
+from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
 from config.permissions import IsAuthorOrReadOnly
 from recipes.filters import IngredientFilter, RecipeFilter
-from recipes.models import (Tag, Ingredient, Recipe, Favorite,
-                            ShoppingCart, IngredientRecipe)
-from recipes.serializers import (TagSerializer, IngredientSerializer,
-                                 RecipeSerializer)
+from recipes.models import (Favorite, Ingredient, IngredientRecipe, Recipe,
+                            ShoppingCart, Tag)
+from recipes.serializers import (IngredientSerializer, RecipeSerializer,
+                                 TagSerializer)
 from users.serializers import RecipeMinifiedSerializer
 
 

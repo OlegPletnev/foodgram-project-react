@@ -1,11 +1,12 @@
+from drf_extra_fields.fields import Base64ImageField
 from rest_framework.exceptions import ValidationError
 from rest_framework.fields import ReadOnlyField, SerializerMethodField
 from rest_framework.serializers import ModelSerializer
 from rest_framework.validators import UniqueTogetherValidator
-from drf_extra_fields.fields import Base64ImageField
 
-from .models import Recipe, Ingredient, Tag, IngredientRecipe
 from users.serializers import CustomUserSerializer
+
+from .models import Ingredient, IngredientRecipe, Recipe, Tag
 
 
 class TagSerializer(ModelSerializer):

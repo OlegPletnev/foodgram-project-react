@@ -4,8 +4,9 @@ from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 
 from recipes.models import Recipe
+
 # from recipes.serializers import RecipeMinifiedSerializer
-from .models import User, Subscribe
+from .models import Subscribe, User
 
 
 class RecipeMinifiedSerializer(ModelSerializer):
