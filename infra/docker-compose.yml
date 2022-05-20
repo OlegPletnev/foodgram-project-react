@@ -9,7 +9,7 @@ services:
       - .env
 
   backend:
-    image: olegpletnev/backend:latest
+    image: olegpletnev/foodgram:latest
     restart: always
     volumes:
       - static_value:/app/static/
