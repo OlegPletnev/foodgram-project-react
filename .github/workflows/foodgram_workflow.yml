@@ -41,7 +41,7 @@ jobs:
           context: ./backend
           file: ./backend/Dockerfile
           push: true
-          tags: olegpletnev/foodgram:latest
+          tags: olegpletnev/foodgram_back
 
   deploy:
     runs-on: ubuntu-latest
@@ -56,7 +56,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foodgram_front
-            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foodgram:latest
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foodgram_back:latest
             sudo docker-compose stop
             sudo docker-compose rm -f backend
             sudo rm .env
