@@ -110,6 +110,7 @@ USE_L10N = True
 
 USE_TZ = False
 
+
 STATIC_URL = '/static/'
 if DEBUG:
     STATICFILES_DIRS = BASE_DIR / 'static/'
