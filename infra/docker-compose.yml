@@ -14,8 +14,8 @@ services:
     image: olegpletnev/foodgram_back
     restart: always
     volumes:
-      - static_value:/app/static/
-      - media_value:/app/media/
+      - static_value:/back/static/
+      - media_value:/back/media/
     depends_on:
       - db
     env_file:
