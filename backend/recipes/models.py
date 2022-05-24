@@ -36,7 +36,7 @@ class Tag(models.Model):
         'Цвет в HEX', max_length=7, unique=True,
         validators=[
             validators.RegexValidator(
-                regex=r'#[a-f\d]{6}',
+                regex=r'#[A-Fa-f\d]{6}',
                 message='Цвет должен быть в HEX кодировке.'
             )
         ]
