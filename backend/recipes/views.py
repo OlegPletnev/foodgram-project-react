@@ -14,7 +14,7 @@ from .filters import IngredientFilter, RecipeFilter
 from .models import (Favorite, Ingredient, IngredientRecipe, Recipe,
                      ShoppingCart, Tag)
 from .serializers import (IngredientSerializer, RecipeSerializer,
-                          TagSerializer)
+                          TagSerializer, RecipeGetSerializer)
 
 
 def delete_method_for_obj(model, user, pk):
@@ -73,6 +73,11 @@ class RecipeViewSet(ModelViewSet):
     permission_classes = [IsAuthorOrReadOnly]
     filter_backends = [DjangoFilterBackend]
     filterset_class = RecipeFilter
+
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return RecipeGetSerializer
+        return RecipeSerializer
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
