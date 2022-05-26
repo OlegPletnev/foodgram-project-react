@@ -1,9 +1,9 @@
 from djoser.serializers import UserCreateSerializer, UserSerializer
 from drf_extra_fields.fields import Base64ImageField
-from recipes.models import Recipe
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 
+from recipes.models import Recipe
 from .models import Subscribe, User
 
 
@@ -76,7 +76,10 @@ class SubscribingSerializer(CustomUserSerializer):
     last_name = serializers.ReadOnlyField(source='author.last_name')
     is_subscribed = serializers.SerializerMethodField()
     recipes = serializers.SerializerMethodField()
-    recipes_count = serializers.SerializerMethodField()
+    recipes_count = serializers.IntegerField(
+        source='author.recipes.count',
+        read_only=True
+    )
 
     class Meta:
         model = Subscribe
@@ -107,6 +110,3 @@ class SubscribingSerializer(CustomUserSerializer):
         if limit:
             queryset = queryset[:int(limit)]
         return RecipeMinifiedSerializer(queryset, many=True).data
-
-    def get_recipes_count(self, obj):
-        return Recipe.objects.filter(author=obj.author).count()
