@@ -134,6 +134,7 @@ class RecipeSerializer(ModelSerializer):
             )
 
         ingredients_list = []
+
         for ingredient in ingredients:
             ingredient_id = ingredient['id']
             if ingredient_id in ingredients_list:
