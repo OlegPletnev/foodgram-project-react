@@ -19,7 +19,7 @@ class TagAdmin(admin.ModelAdmin):
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
     list_display = (
-        'name', 'author', 'added_in_favorites', 'get_ingredients_count'
+        'id', 'name', 'author', 'added_in_favorites', 'get_ingredients_count'
     )
     list_filter = ('name', 'author', 'tags',)
     readonly_fields = ('added_in_favorites',)

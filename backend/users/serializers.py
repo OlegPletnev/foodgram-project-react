@@ -61,11 +61,13 @@ class CustomUserSerializer(UserSerializer):
         """
         Подписан ли текущий пользователь на просматриваемого.
         """
-
-        user = self.context.get('request').user
-        if user.is_authenticated and (user != obj):
-            return Subscribe.objects.filter(user=user, author=obj).exists()
-        return False
+        request = self.context.get('request', )
+        if not request or request.user.is_anonymous:
+            return False
+        return Subscribe.objects.filter(
+            user=request.user,
+            author=obj
+        ).exists()
 
 
 class SubscribingSerializer(CustomUserSerializer):
